@@ -1,0 +1,210 @@
+.m-top-5 {
+  margin-top: 5rem;
+}
+
+.m-top-3 {
+  margin-top: 3rem;
+}
+
+.m-y-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mt8 {
+  margin-top: 8%;
+}
+.profile {
+  padding: 1rem 3rem;
+  max-width: 105rem;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+.profile-head {
+  border-radius: 1.5rem;
+  height: 15rem;
+  background-color: #cbd5df;
+
+  &__welcome {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: $pink;
+    text-align: center;
+    span {
+      display: block;
+    }
+  }
+}
+
+.profile-picture {
+  img {
+    width: 100%;
+    max-width: 31.5rem;
+    height: auto;
+  }
+}
+
+.profile-photo {
+  max-height: 20rem;
+  &__pic {
+    background: #ffffff;
+    min-height: 19rem;
+    max-width: 22rem;
+    min-width: 15rem;
+    border-radius: 1.5rem;
+    padding-top: 0.1rem;
+    text-align: center;
+  }
+
+  .pic-pre {
+    text-align: center;
+    color: $grey-seven;
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .pic-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 13rem;
+    max-width: 19rem;
+    margin: 0 auto;
+    background: url(../img/icons/icon-circle.svg) no-repeat center / 12rem,
+      url(../img/icons/icon-palm.svg) no-repeat center;
+
+    img {
+      width: 100%;
+      max-width: 15rem;
+      margin-bottom: 1.5rem;
+      height: auto;
+    }
+  }
+
+  .edit-sign {
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $cian;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 500;
+    position: absolute;
+    bottom: 10%;
+    right: 18%;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.17);
+      background-color: $pink;
+    }
+  }
+}
+
+ul.collapsible {
+  box-shadow: none;
+  border: none;
+
+  .collapsible-header {
+    padding: 0.5rem;
+  }
+}
+
+ul.collapsible > li {
+  margin-bottom: 0.5rem;
+}
+
+.form-block {
+  // border: 1px solid;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 1rem !important;
+
+  &__heading {
+    color: $cian;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 0 0;
+  }
+  .inputs-container {
+    margin-bottom: 0;
+    .input-field {
+      margin-left: 1.5rem;
+    }
+  }
+
+  .gender-group {
+    &__radio {
+      margin-right: 1rem;
+    }
+  }
+
+  .collapsible-body {
+    padding: 0;
+    // background: rgb(140, 221, 225);
+    // background: linear-gradient(
+    //   325deg,
+    //   rgba(140, 221, 225, 1) 35%,
+    //   rgba(255, 255, 255, 1) 35%
+    // );
+  }
+}
+
+.profile-submit-btn {
+  border-radius: 1rem;
+  width: 18rem;
+  display: block;
+  background-color: $cian;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+//js classes
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+//media
+@media only screen and (max-width: 601px) {
+  .profile {
+    padding: 1rem 1.5rem;
+  }
+  .profile-head {
+    &__welcome {
+      font-size: 2rem;
+    }
+  }
+  .profile-photo {
+    &__pic {
+      margin: 0 auto;
+    }
+  }
+
+  .profile-submit-btn {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+  .form-block {
+    &__heading {
+      margin: 0.5rem 0 0.2rem 1.5rem;
+    }
+    .inputs-container {
+      .input-field {
+        margin-bottom: 0;
+      }
+    }
+
+    .gender-group {
+      &__radio {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

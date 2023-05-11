@@ -1,0 +1,16 @@
+{
+  "name": "support_pets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass-nav": "node-sass js/nav/nav.scss js/nav/nav.css -w",
+    "sass": "node-sass sass/main.scss css/main.css -w"
+  },
+  "author": "Mikle Chigorin",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.5.0",
+    "node-sass": "^4.12.0"
+  }
+}

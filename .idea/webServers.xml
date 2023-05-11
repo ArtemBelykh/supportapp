@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aca2263c-ff0a-4ac2-82cc-aebda17077e9" name="supportapp" url="http://138.68.225.156/supportApp/">
+        <fileTransfer rootFolder="/var/www/html/" accessType="SFTP" host="138.68.225.156" port="22" sshConfigId="07bd0f24-3459-45df-bfbb-499a99b48643" sshConfig="web-dev@138.68.225.156:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

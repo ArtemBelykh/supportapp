@@ -1,0 +1,28 @@
+@import 'tools/variables';
+
+//fonts
+@import './tools/fonts';
+//icons
+@import './components/icons';
+//layout
+@import './layout/main';
+
+//parts
+// @import './parts/sideBar';
+
+//components
+@import './components/footer';
+
+//pages
+@import './pages/login-form';
+@import './pages/dashBoard';
+@import './pages/airline';
+@import './pages/profile';
+@import './pages/transactions';
+@import './pages/esa-docs';
+@import './pages/activecase';
+
+@import './pages/messagebot';
+@import './pages/requests';
+@import './pages/support';
+@import './pages/activecase';

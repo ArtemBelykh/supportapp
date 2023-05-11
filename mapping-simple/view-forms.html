@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapping</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container h-100 main_container">
+    <p class="h4 get_title"></p>
+    <div class="btn-right">
+        <input class="btn btn-primary" type="submit" value="RETURN">
+        <input class="btn btn-success save_go" type="submit" value="SAVE">
+        <input class="btn btn-danger clear_go" type="submit" value="CLEAR">
+    </div>
+    <div class="row align-items-center">
+        <div class="col text-center justify-content-center align-self-center">
+            <div class="select1">
+                <select class="form-select" aria-label="multiple select example" multiple style="height: 200px"></select>
+                <div class="bttn">
+                    <button class="btn btn-primary btn-up" type="submit"><i class="fas fa-angle-double-up"></i></button>
+                    <button class="btn btn-primary btn-down" type="submit"><i class="fas fa-angle-double-down"></i></button>
+                </div>
+                <div class="inputs">
+                    <input class="form-control questions_add" type="text" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="col text-center justify-content-center align-self-center">
+            <div class="select2">
+                <select class="form-select" aria-label="multiple select example" multiple style="height: 200px">
+                    <optgroup label="test">
+                        <option selected value="1">123</option>
+                        <option value="2">1235</option>
+                    </optgroup>
+                    <optgroup label="test-1">
+                        <option value="3">1236</option>
+                        <option value="4">1236</option>
+                        <option value="5">1234</option>
+                    </optgroup>
+                </select>
+                <div class="bttn">
+                    <button class="btn btn-primary btn-up-2" type="submit"><i class="fas fa-angle-double-up"></i></button>
+                    <button class="btn btn-primary btn-down-2" type="submit"><i class="fas fa-angle-double-down"></i></button>
+                </div>
+                <div class="inputs">
+                    <input class="form-control ask_add" type="text" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-center" style="display:flex;justify-content:center;margin-top: 25px;">
+        <button class="btn btn-primary add_go" type="submit"><i class="fas fa-angle-double-down"></i></button>
+    </div>
+    <div class="select3" style="width: 100%;">
+        <select class="form-select" aria-label="multiple select example" multiple></select>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="js/view-forms.js"></script>
+</body>
+</html>

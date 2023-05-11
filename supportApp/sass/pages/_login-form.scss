@@ -1,0 +1,134 @@
+.login-header {
+  // border: 1px solid;
+  .logo {
+    max-width: 90%;
+    height: auto;
+  }
+
+  &__top-line {
+    height: 24px;
+    background: $dark-blue;
+  }
+
+  &__logo-container {
+    border-radius: 40px;
+    padding: 2.5rem 0 1.3rem;
+    box-shadow: 0 22px 12px -25px $background;
+  }
+}
+
+.login-section {
+  margin-top: 4.5rem;
+  min-height: 69vh;
+
+  .row {
+    margin-bottom: 0;
+  }
+  &__left {
+    // border: 1px solid;
+    text-align: center;
+    padding-right: 2rem;
+  }
+  &__left img {
+    width: 100%;
+    height: auto;
+    max-width: 34rem;
+  }
+
+  &__right {
+    margin: 1.5rem 0;
+    border: 2px solid $dark-cian;
+    padding: 1rem 1.2rem 0;
+    max-width: 507px;
+
+    .right-top {
+      font-family: 'Roboto', sans-serif;
+
+      &__heading {
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 400;
+        color: $dark-grey;
+      }
+      &__pre {
+        margin-top: 0;
+        line-height: 20px;
+        font-size: 1.1rem;
+        color: $grey-seven;
+        margin-bottom: 5px;
+      }
+    }
+
+    .right-footer {
+      border: 1px solid;
+    }
+  }
+  .signup-block {
+    max-width: 507px;
+    color: $grey-seven;
+    .signup-link {
+      color: $cian;
+      margin-left: 0.5rem;
+      font-size: 1.14rem;
+      border-bottom: 1px solid #ffff;
+      transition: all 0.3s;
+      &:hover {
+        border-color: rgba($cian, 0.5);
+      }
+    }
+  }
+}
+
+.login-form {
+  padding: 0 1.4rem 0;
+
+  &__row {
+    margin-bottom: 0px;
+  }
+
+  .btn-register {
+    background: $login-color;
+    width: 100%;
+  }
+
+  &__socials {
+    // border: 1px solid;
+  }
+
+  .social-fcb,
+  .social-psw {
+    margin: 0 auto 1rem;
+    display: block;
+    width: fit-content;
+    text-align: center;
+  }
+  .social-fcb {
+    background: url(/img/icons/facebook.png) no-repeat left;
+    padding-left: 2rem;
+    color: $dark-grey;
+    margin-top: 0.5rem;
+  }
+
+  .social-psw {
+    color: $grey-seven;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.border-or {
+  background: url(/img/grey-border.png) center;
+  background-repeat-y: no-repeat;
+  text-align: center;
+  color: #aaaaaa;
+
+  span {
+    display: block;
+    background-color: #ffff;
+    border-bottom: 1px solid $light-grey;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+}

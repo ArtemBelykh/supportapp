@@ -1,0 +1,346 @@
+body,
+html {
+  height: 100%;
+}
+
+*,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  overflow-y: scroll;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-auto-rows: 100%;
+}
+.container::before {
+  display: block;
+  content: none;
+}
+
+header {
+  box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.17);
+}
+
+.main {
+  padding: 10px 30px;
+}
+
+#myTable tr.highlight,
+#myTable tr.highlight td:first-child {
+  background-color: #cfecec;
+}
+
+.search-item-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.search-item-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.add-item-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.add-item-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.add-item-section form .inputs-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.add-item-section form .inputs-block__input-wrapper {
+  width: 50%;
+  padding: 0 10px;
+  margin: 0 -10px 10px;
+}
+.add-item-section form .inputs-block__input-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.add-item-section form .inputs-block__input-wrapper input {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+}
+@media all and (max-width: 992px) {
+  .add-item-section form .inputs-block .inputs-block__input-wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+}
+.add-item-section form .btn-wrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+.add-item-section form .btn-wrapper button {
+  padding: 7px 16px 8px;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-item-section form .btn-wrapper button:hover, .add-item-section form .btn-wrapper button:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.item-details-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.item-details-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.item-details-section form .collapsible {
+  list-style: none;
+}
+.item-details-section form .collapsible-header {
+  display: flex;
+  justify-content: space-between;
+}
+.item-details-section form .inputs-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.item-details-section form .inputs-block__input-wrapper {
+  width: 50%;
+  padding: 0 10px;
+  margin: 0 -10px 10px;
+}
+.item-details-section form .inputs-block__input-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.item-details-section form .inputs-block__input-wrapper input,
+.item-details-section form .inputs-block__input-wrapper select {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+}
+@media all and (max-width: 992px) {
+  .item-details-section form .inputs-block .inputs-block__input-wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+}
+.item-details-section form #collapseOne .inputs-block__input-wrapper:nth-child(4) {
+  display: flex;
+  justify-content: space-between;
+}
+.item-details-section form .btn-wrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+.item-details-section form .btn-wrapper button {
+  padding: 7px 16px 8px;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.item-details-section form .btn-wrapper button:hover, .item-details-section form .btn-wrapper button:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+/*add-items*/
+
+.add-item-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.add-item-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.add-item-section form .collapsible {
+  list-style: none;
+}
+.add-item-section form .collapsible-header {
+  display: flex;
+  justify-content: space-between;
+}
+.add-item-section form .inputs-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.add-item-section form .inputs-block__input-wrapper {
+  width: 50%;
+  padding: 0 10px;
+  margin: 0 -10px 10px;
+}
+.add-item-section form .inputs-block__input-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.add-item-section form .inputs-block__input-wrapper input,
+.add-item-section form .inputs-block__input-wrapper select {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+}
+.cursor--pointer {
+  cursor: pointer !important;
+}
+@media all and (max-width: 992px) {
+  .add-item-section form .inputs-block .inputs-block__input-wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+}
+.add-item-section form #collapseOne .inputs-block__input-wrapper:nth-child(4) {
+  display: flex;
+  justify-content: space-between;
+}
+.add-item-section form .btn-wrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+.add-item-section form .btn-wrapper button {
+  padding: 7px 16px 8px;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-item-section form .btn-wrapper button:hover, .item-details-section form .btn-wrapper button:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+/*end add-items*/
+
+.product-details-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.product-details-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.add-product-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.add-product-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.add-product-section form .inputs-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.add-product-section form .inputs-block__input-wrapper {
+  width: 50%;
+  padding: 0 10px;
+  margin: 0 -10px 10px;
+}
+.add-product-section form .inputs-block__input-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.add-product-section form .inputs-block__input-wrapper input {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+}
+@media all and (max-width: 992px) {
+  .add-product-section form .inputs-block .inputs-block__input-wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+}
+.add-product-section form .btn-wrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+.add-product-section form .btn-wrapper button {
+  padding: 7px 16px 8px;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-product-section form .btn-wrapper button:hover, .add-product-section form .btn-wrapper button:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.search-product-section .header {
+  background: linear-gradient(45deg, #8cdde1 60%, white 36%);
+  color: #fff;
+  border-radius: 4px;
+}
+.search-product-section .header h3 {
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}

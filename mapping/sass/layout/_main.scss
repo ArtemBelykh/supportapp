@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-wrapper,
+.main {
+  min-height: 100vh;
+  position: relative;
+  padding: 20px;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba($grey, 0.2);
+  outline: 1px solid slategrey;
+}
+
+.main-wrapper {
+  .row.center {
+    height: 100vh;
+    margin-bottom: 0;
+  }
+  .center {
+    height: 100%;
+    float: none;
+    margin: 0 auto;
+  }
+  .left {
+    display: flex;
+    justify-content: space-between;
+    width: calc(66.6666666667% - 10px) !important;
+    margin-right: 10px;
+    height: 400px;
+    padding: 10px 20px;
+    background-color: #eee;
+    .jotform-fields {
+      width: calc(50% - 10px);
+      &__title {
+        text-align: start;
+        color: #4d4dfc;
+        font-weight: bold;
+      }
+      &__list {
+        margin-bottom: 0;
+        list-style-type: none;
+      }
+      &__item {
+        padding: 2px 0 2px 5px;
+        border: 1px solid #ddd;
+        text-align: start;
+        background-color: #e5e568;
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .matched-fields {
+      @extend .jotform-fields;
+      &__title {
+        @extend .jotform-fields__title;
+      }
+      &__list {
+        @extend .jotform-fields__list;
+      }
+      &__item {
+        @extend .jotform-fields__item;
+        display: flex;
+        // width: 246px;
+        height: 27px;
+        justify-content: space-between;
+        background-color: #fff;
+        .item-del {
+          width: 30px;
+          text-align: center;
+          color: #6161e0;
+        }
+      }
+      .dragbox {
+        &.ui-draggable-dragging {
+          .dragbox__text {
+            background: rgba(#e4e48d, 0.9);
+            border-right: 1px solid #ddd;
+          }
+          .del-btn {
+            color: #ddd;
+            height: 27px;
+          }
+        }
+      }
+      .dragbox {
+        &.collapsible-body {
+          // width: 246px;
+          padding: 0;
+          height: 27px;  
+        }
+        &__text {
+          width: calc(100% - 30px);
+          text-align: start;
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          padding: 0 0 0 7px;
+          line-height: 27px;
+          border-right: 1px solid lightblue;
+          background: lightblue;
+          cursor: default;
+        }
+        .del-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: lightblue;
+          font-weight: bold;
+          position: absolute;
+          right: 0;
+          width: 30px;
+          height: 27px;
+          cursor: pointer;
+          // border-left: 1px solid blue;
+        }
+      }
+      
+    }
+  }
+  .right {
+    height: 400px;
+    background-color: #eee;
+    padding: 10px 20px;
+    .ontraport-fields {
+      &__title {
+        text-align: start;
+        color: #4d4dfc;
+        font-weight: bold;
+        
+      }
+      &__list {
+        @extend .jotform-fields__list;
+        // position: relative;
+      }
+      &__item {
+        border: 1px solid #ddd;
+        text-align: start;
+        background-color: #fff;
+        &.active {
+          border: 1px solid #4ac0e6;
+        }
+
+        .item-del {
+          width: 30px;
+          text-align: center;
+          color: #6161e0;
+        }
+        .dragbox {
+          &__text {
+            cursor: default;
+          }
+        }
+        .material-icons {
+          transform: rotate(-90deg);
+          &.--rotated {
+            transform: rotate(0deg);
+          }
+        }
+      }
+      .collapsible {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        .collapsible-header {
+          color: orange;
+          padding: 0;
+          background: none;
+        }
+        .collapsible-body {
+          padding: 2px 0 2px 5px;
+        }
+      }
+    }
+  }
+}
+
+.ui-draggable-dragging {
+  // border: 1px solid #ddd;
+  display: flex!important;
+  justify-content: space-between;
+  // width: 100%;
+  height: 27px;
+  padding: 0;
+  background: rgba(#e4e48d, 0.9);
+  font-size: 1rem;
+}
+
+
+
+
+ 

@@ -1,0 +1,189 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: /../login.php");
+    exit;
+}
+
+require(dirname(__FILE__).'/../config/config.php');
+require(dirname(__FILE__).'/../config/config_op.php');
+
+// **********
+// get incoming parameters
+
+// get fname -- f1858
+$fname = '';
+if( isset($_GET["fname"]) ) { $fname = mysqli_real_escape_string($link, $_GET['fname']); };
+// get mname -- f1859
+$mname = '';
+if( isset($_GET["mname"]) ) { $mname = mysqli_real_escape_string($link, $_GET['mname']); };
+// get lname -- f1860
+$lname = '';
+if( isset($_GET["lname"]) ) { $lname = mysqli_real_escape_string($link, $_GET['lname']); };
+
+// get isActive -- f1878
+$isActive = '0';
+if( isset($_GET["isActive"]) ) { $isActive = mysqli_real_escape_string($link, $_GET['isActive']); };
+// get login -- f1888
+$login = '';
+if( isset($_GET["login"]) ) { $login = mysqli_real_escape_string($link, $_GET['login']); };
+// get psswd -- psswd
+$psswd = '';
+if( isset($_GET["psswd"]) ) { 
+    $password = mysqli_real_escape_string($link, $_GET['psswd']); 
+    $psswd = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+};
+
+// get address -- f1861
+$address = '';
+if( isset($_GET["address"]) ) { $address = mysqli_real_escape_string($link, $_GET['address']); };
+// get city -- f1862
+$city = '';
+if( isset($_GET["city"]) ) { $city = mysqli_real_escape_string($link, $_GET['city']); };
+// get state -- f1863
+$state = '';
+if( isset($_GET["state"]) ) { $state = mysqli_real_escape_string($link, $_GET['state']); };
+// get zip -- f1864
+$zip = '';
+if( isset($_GET["zip"]) ) { $zip = mysqli_real_escape_string($link, $_GET['zip']); };
+
+// get smsNum -- f1867
+$smsNum = '';
+if( isset($_GET["smsNum"]) ) { $smsNum = mysqli_real_escape_string($link, $_GET['smsNum']); };
+// get phoneService -- f1879
+$phoneService = '';
+if( isset($_GET["phoneService"]) ) { $phoneService = mysqli_real_escape_string($link, $_GET['phoneService']); };
+// get phonePublic -- f1880
+$phonePublic = '';
+if( isset($_GET["phonePublic"]) ) { $phonePublic = mysqli_real_escape_string($link, $_GET['phonePublic']); }
+
+// get emailService -- f1869
+$emailService = '';
+if( isset($_GET["emailService"]) ) { $emailService = mysqli_real_escape_string($link, $_GET['emailService']); }
+// get emailPublic -- f1886
+$emailPublic = '';
+if( isset($_GET["emailPublic"]) ) { $emailPublic = mysqli_real_escape_string($link, $_GET['emailPublic']); }
+
+// get npi -- f1872
+$npi = '0';
+if( isset($_GET["npi"]) ) { $npi = mysqli_real_escape_string($link, $_GET['npi']); }
+// get titleFull -- f1876
+$titleFull = '';
+if( isset($_GET["titleFull"]) ) { $titleFull = mysqli_real_escape_string($link, $_GET['titleFull']); }
+// get titleShort -- f1877
+$titleShort = '';
+if( isset($_GET["titleShort"]) ) { $titleShort = mysqli_real_escape_string($link, $_GET['titleShort']); }
+// **********
+
+// prepare sql request IN parameters
+$sql = "call sp_insert_or_update_doctor_by_NPI_www_01('";
+
+$sql.= $fname . "','";
+$sql.= $mname . "','";
+$sql.= $lname . "','";
+
+$sql.= $isActive . "','";
+$sql.= $login . "','";
+$sql.= $psswd . "','";
+
+$sql.= $address . "','";
+$sql.= $city . "','";
+$sql.= $state . "','";
+$sql.= $zip . "','";
+
+$sql.= $smsNum . "','";
+$sql.= $phoneService . "','";
+$sql.= $phonePublic . "','";
+
+$sql.= $emailService . "','";
+$sql.= $emailPublic . "','";
+
+$sql.= $npi . "','";
+$sql.= $titleFull . "','";
+$sql.= $titleShort . "',";
+$sql.= "@result);";
+
+$result = mysqli_query($link, $sql) or die('[{"Error":"Problem with executing SP:' . mysqli_error($conn) . '"}]');
+// step to next result set - MySQL stored procedure specific
+$link->next_result();
+
+// Fetch OUT parameters 
+if ( !($result = $link->query("SELECT @result AS result;")) )
+    { die('[{"Error":"Fetch failed: (' . $link->errno . ') ' . $link->error . '"}]'); };
+//$row = $result->fetch_assoc();
+
+// Return result
+$arrMain = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $arrMain[] = $row;
+}    
+//$countme = mysqli_num_rows($result);  
+// *** *** *** 
+// parse array into JSON format
+$myJSON = json_encode($arrMain);
+
+// print out the JSON result
+echo $myJSON;
+
+// extract created MySQL Doctor ID
+$newID = $arrMain[0]["result"];
+if ( $newID == '' ){ exit; };
+
+// *** *** ***
+//make an OP entry
+$requestParams = array(
+    "objectID"  => 10000, // Object type ID: 10000  - Doctor    
+
+    "f1858"     => $fname,
+    "f1859"     => $mname,
+    "f1860"     => $lname,
+
+    "f1878"     => 0, //$isActive,
+    "f1888"     => $login,
+    //"f1860"     => $psswd,
+
+    "f1861"     => $address,
+    "f1862"     => $city,
+    "f1863"     => $state,
+    "f1864"     => $zip,
+    
+    "f1867"     => $smsNum,
+    "f1879"     => $phoneService,
+    "f1880"     => $phonePublic,
+
+    "f1869"     => $emailService,
+    "f1886"     => $emailPublic,
+
+    "f1872"     => $npi,
+    "f1876"     => $titleFull,
+    "f1877"     => $titleShort
+);
+$response = $clientOP->object()->create($requestParams);
+
+// get OP Doctor ID from it
+$response = json_decode($response, true);
+$opID = $response["data"]["id"];
+
+// update MySql with created OP_ID
+
+$sql = $sql = "call sp_update_doctor_op_id_by_id_www_01(";
+$sql.= $newID . ",";
+$sql.= $opID . ",";
+$sql.= "@result);";
+
+$result = mysqli_query($link, $sql) or die('[{"Error":"Problem with executing SP:' . mysqli_error($conn) . '"}]');
+// step to next result set - MySQL stored procedure specific
+$link->next_result();
+
+// Fetch OUT parameters 
+if ( !($result = $link->query("SELECT @result AS result;")) )
+    { die('[{"Error":"Fetch failed: (' . $link->errno . ') ' . $link->error . '"}]'); };
+//$row = $result->fetch_assoc();
+
+//free resources
+mysqli_free_result($result);
+mysqli_close($link);
+?>

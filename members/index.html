@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Support Pets</title>
+    <!-- Styles and Fonts -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/materialize.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <header class="login-header">
+        <div class="login-header__top-line"></div>
+        <div class=" container center-align login-header__logo-container">
+          <img
+            class="logo"
+            src="./img/logo-form.png"
+            alt="support pets members area"
+          />
+        </div>
+      </header>
+      <!-- LOGIN FORM SECTION -->
+      <section class="login-section">
+        <div class="container">
+          <div class="row">
+            <div class="col m6">
+              <div class="login-section__left hide-on-small-only">
+                <img src="./img/dog_cat-2.png" alt="support pets cat and dog" />
+              </div>
+            </div>
+            <div class="col m6">
+              <div class="login-section__right">
+                <div class="center-align right-top">
+                  <h5 class="right-top__heading">login</h5>
+                  <p class="right-top__pre">
+                    To view your ESA documents, change personal information,
+                    request custom forms and more.
+                  </p>
+                </div>
+                <form action="#" class="login-form">
+                  <div class="row login-form__row">
+                    <div class="input-field col s12">
+                      <input id="loginEmail" type="email" class="validate" />
+                      <label for="loginEmail">Email</label>
+                    </div>
+                  </div>
+                  <div class="row login-form__row">
+                    <div class="input-field col s12">
+                      <input
+                        id="loginPassword"
+                        type="password"
+                        class="validate"
+                      />
+                      <label for="loginPassword">Password</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <button
+                        class="btn btn-large btn-register waves-effect waves-light"
+                        type="submit"
+                        name="action"
+                      >
+                        Log In
+                      </button>
+                    </div>
+                  </div>
+                  <div class="login-form__socials">
+                    <div class="border-or"><span>OR</span></div>
+                    <a href="#" class="social-fcb">Log in with Facebook</a>
+                    <a href="#" class="social-psw">Forgot password ?</a>
+                  </div>
+                </form>
+              </div>
+              <div class="center-align signin-block">
+                Don't have an account?
+                <a class="signin-link" href="./dashboard.html">Sign In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row row-revert">
+            <div class="col s12 m6 center-align">
+              <div class="footer__rights">
+                © 2019 - Support Pets - All rights reserved
+              </div>
+            </div>
+            <div class="col s12 m6 center-align">
+              <div class="footer__links">
+                <a href="#" class="link">Terms & Conditions</a>
+                <a href="#" class="link">Privacy Policy</a>
+                <a href="#" class="link">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts  -->
+    <script src="js/min-jquery.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pet-data.js"></script>
+  </body>
+</html>

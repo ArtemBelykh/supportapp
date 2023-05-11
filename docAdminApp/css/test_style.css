@@ -1,0 +1,43 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<base target="_top">
+
+<style>
+
+/* nav pills resetting*/
+.nav-tabs > li, .nav-pills > li {
+    float:none; 
+    display:inline-block;    
+    *display:inline; /* ie7 fix */
+    zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs > li > a, .nav-pills > li > a {
+    /* adjust padding for height*/
+    padding-top: 5px; 
+    padding-bottom: 5px;   
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+  
+/* table resetting*/
+.table-responsive>.fixed-column {
+  position: absolute;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+}  
+.table-condensed{
+  font-size: 10px;
+}
+
+</style>

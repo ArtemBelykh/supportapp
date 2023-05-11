@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Support Pets</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./css/materialize.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    
+  </head>
+
+  <body>
+    <div class="container-fluid main-wrapper">
+        <div class="row">
+          
+          <div class="col s8 center">
+            <div class="row">
+              <div class="btns-block">
+                <a class="waves-effect waves-light btn-small save-data">Save</a>
+              </div>
+              <div class="col s8 left">
+                <div class="jotform-fields">
+                  <p class="jotform-fields__title">JOTFORM FIELDS</p>
+                    <ul class="jotform-fields__list">
+
+                    </ul>
+                </div>
+                <div class="matched-fields">
+                  <p class="matched-fields__title">MATCHED</p>
+                  
+                    <ul class="matched-fields__list">
+                      <!-- <li class="matched-fields__item">
+                      </li>
+                      <li class="matched-fields__item">
+                      </li>
+                      <li class="matched-fields__item">
+                      </li> -->
+                    </ul>
+                  
+                </div>
+              </div>
+              <div class="col s4 right">
+                <div class="ontraport-fields">
+                  <p class="ontraport-fields__title">ONTRAPORT FIELDS</p>
+                    <ul class="ontraport-fields__list collapsible">
+                      <li class="ontraport-fields__item">
+                        <div class="collapsible-header">
+                          <i class="material-icons">expand_more</i>
+                          Contact Information
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      <div class="view_data"></div>
+    </div>
+
+    <script src="js/min-jquery.js"></script>
+    <script src="js/materialize.min.js"></script>
+    
+
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>  
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Droppable - Default functionality</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <style>
+      .container {
+  padding: 20px;
+  display: flex;
+}
+.container div.col1,
+.container div.col2 {
+  display: grid;
+  align-content: center;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 0;
+  grid-template: 40px / 100px;
+  grid-gap: 8px;
+}
+
+.container div.col1 div {
+  border-radius: 70px / 2;
+}
+
+.dragbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background-color: #ff6960;
+  /* position: absolute; */
+}
+
+.dragbox p {
+  font-family: Yantramanav, sans-serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  color: white;
+  cursor: default;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.dropbox {
+  width: 100px;
+  height: 40px;
+  background-color: #59dad7;
+}
+
+.hoveringbox {
+  background-color: #59dad7 + #151515;
+}
+
+.draggingbox {
+  background-color: #ff6960 + #090909 !important;
+}
+
+.del {
+  position: relative;
+  left: 36px;
+  height: 100%;
+  width: 20px;
+    background-color: #59dad7;
+  /* vertical-align: middle; */
+  justify-content: center;
+  /* vertical-align: middle; */
+  display: flex;
+  align-items: center;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        var currentBox = 3;
+        let col1 = Array(5).fill(null).map((el, i) => ({id: i+1}));
+        let col2 = Array(5).fill(null).map((el, i) => ({id: i+1, text: i+1}));
+        let col1ui, col2ui = ``;
+        let map = {};
+        renderCol1();
+        renderCol2();
+        console.log('col1 init', col1)
+        console.log('col2 init', col2)
+        let droppableId;
+        let prevDroppableId;
+        // $('.dragbox').css({position: 'static'})
+
+
+        // function magnetSnap(speed) {
+        //   var snapspeed = speed;
+        //   var p = $(".container div.col2 div:nth-child(" + currentBox + ")");
+        //   var offset = p.offset();
+        //   console.log("offset", offset);
+        //   $(".dragbox").animate(
+        //     {
+        //       top: offset.top,
+        //       left: offset.left
+        //     },
+        //     snapspeed
+        //   );
+        // }
+
+        // magnetSnap(0);
+
+        // $(window).resize(function () {
+        //   magnetSnap(0);
+        // });
+
+        // $(".dragbox")
+        //   .mousedown(function () {
+        //     $(this).addClass("draggingbox");
+        //   })
+        //   .mouseup(function () {
+        //     $(this).removeClass("draggingbox");
+        //   });
+
+        $(".dragbox").draggable({
+          appendTo: 'body',
+          revert: "invalid",
+          helper: "clone",
+          // create(e, ui) {
+          //   console.log(1, this)
+          //   $(this).css({
+          //     position: "absolute!important",
+          //     // top: e.pageY,
+          //     // left: e.pageX
+          //   });
+          // },
+          start(e, ui) {
+            // $(this).css({
+            //   position: "absolute!important",
+            //   // top: e.pageY,
+            //   // left: e.pageX
+            // });
+            // const offset = $(this).offset();
+            // console.log("this", this);
+              if ($(this).parent().hasClass('col2')) {
+                console.log('parent')
+                $(this).data('oldTopPos', $(this).position().top);
+                $(this).data('oldLeftPos', $(this).position().left);
+              }
+          },
+          drag(e, ui) {
+            // $(this).css({
+            //   position: "absolute",
+            //   top: e.pageY,
+            //   left: e.pageX
+            // });
+            // ui.helper.offset(ui.position);
+            // console.log("position", $(this).position());
+            // console.log("event", e.pageX, e.pageY);
+            // let shiftX =
+            //   e.clientX - $(this).get(0).getBoundingClientRect().left;
+            // let shiftY = e.clientY - $(this).get(0).getBoundingClientRect().top;
+            // console.log('e.pageY - shiftY + "px"', e);
+          },
+          stop(e, ui) {
+            console.log("stop", ui.position);
+
+            // $(this).css({
+            //   position: "absolute",
+            //   top: e.pageY,
+            //   left: e.pageX
+            // });
+            // $(this).css({
+            //   position: "relative",
+            //   top: $(this).position().top,
+            //   left: $(this).position().left
+            // });
+            // $(this).css({
+            //   position: "relative"
+            //   // top: offset.top,
+            //   // left: offset.left
+            // });
+          }
+        });
+
+        // $(".col2 .dropbox").droppable({
+        //   disabled: true,
+
+        //   classes: {
+        //     "ui-droppable-hover": "hoveringbox"
+        //   },
+
+        //   over: function (event, ui) {
+        //     var p = $(this);
+        //     currentBox = p.index() + 1;
+        //     $("#dragbox p").text(currentBox);
+        //   },
+
+        //   drop: function (event, ui) {
+        //     console.log(1);
+        //     // magnetSnap(40);
+        //   }
+        // });
+
+        $(".col1 .dropbox").droppable({
+          accept: ".dragbox",
+          classes: {
+            "ui-droppable-hover": "hoveringbox"
+          },
+
+          over: function (event, ui) {
+            var p = $(this);
+            currentBox = p.index() + 1;
+            $(".dragbox p").text(currentBox);
+          },
+
+          drop: function (event, ui) {
+            
+            console.log("ui pos", ui.position);
+            console.log("draggable pos", ui.draggable);
+            console.log("helper pos", ui.helper.position());
+            console.log("offset", $(this).offset());
+            const pos = ui.offset;
+            const dPos = $(this).offset();
+            console.log('pos', pos)
+            console.log('dPos', dPos)
+
+            const top = pos.top - dPos.top;
+            const left = pos.left - dPos.left;
+            // console.log("ui", {
+            //   top: pos.top - dPos.top,
+            //   left: pos.left - dPos.left
+            // });
+            const draggable = $(ui.draggable.get(0));
+            console.log('draggable', $(draggable.get(0)).data('dragid'))
+            draggable.css(
+              {
+                position: 'absolute'
+              })
+              
+            // // magnetSnap(40);
+            // var dropPositionX = event.pageX - $(this).offset().left;
+            // var dropPositionY = event.pageY - $(this).offset().top;
+            // console.log("event.pageX", event.pageX);
+            // console.log("event.pageY", event.pageY);
+
+            // console.log("dropPositionX", dropPositionX);
+            // console.log("dropPositionY", dropPositionY);
+            // // Get mouse offset relative to dragged item:
+            // var dragItemOffsetX = event.offsetX;
+            // var dragItemOffsetY = event.offsetY;
+            // // Get position of dragged item relative to drop target:
+            // var dragItemPositionX = dropPositionX - dragItemOffsetX;
+            // var dragItemPositionY = dropPositionY - dragItemOffsetY;
+            // console.log(dropPositionX, dropPositionY);
+            // console.log(
+            //   "DROPPED IT AT " + dragItemPositionX + ", " + dragItemPositionY
+            // );
+            // console.log("ui.draggable.get(0)", ui.draggable.position());
+            // var a = ui.helper.clone();
+            // console.log("INFO: Accepted: ", a.attr("class"));
+            // a.css("z-index", 1000);
+            
+            
+            
+            $('.col1').append(() => {
+              
+              return draggable;
+            });
+            $(ui.draggable.get(0)).animate(
+              {
+                top: ui.helper.position().top - top,
+                left: ui.helper.position().left - left
+                
+              },
+              0
+            );
+            // if ($.contains('.col1', $(ui.draggable.get(0)) {
+
+            // }
+            
+            const idx = col2.findIndex(el => el.id === $(draggable.get(0)).data('dragid'));
+            console.log('idx befireo:', idx)
+            col2 = col2.map(el => {
+              if(el.id === $(draggable.get(0)).data('dragid')) {
+                return {...el, hidden: true}
+              } else {
+                return el
+              }
+            })
+            if (idx !== - 1) {
+              
+              
+              console.log('col2', col2)
+              console.log('idx:', idx)
+              $(draggable.get(0)).data('prevIdx', idx);
+            }
+            console.log('prevIDX', $(draggable.get(0)).data('prevIdx'))
+            renderCol2();
+
+            $('.col2 div').draggable({
+              appendTo: 'body',
+              revert: "invalid",
+              helper: "clone"
+            });
+            // $('.col1 .dropbox').each(i => {
+            //   // debugger
+            //   if ($(this).droppable('option', 'disabled')) return;
+            //   $(this).droppable('enable');
+            // })
+
+            droppableId = $(this).data('dropid');
+
+            console.log('droppableId 1313', droppableId);
+        
+            $(`.col1 .dropbox[data-dropid=${droppableId}]`).droppable('disable')
+            // if (droppableId !== prevDroppableId || prevDroppableId !== undefined) {
+            //   prevDroppableId = droppableId;
+            //   $(`.col1 .dropbox[data-dropid=${prevDroppableId}]`).droppable('enable')
+            // }
+            if (!$(ui.draggable.get(0)).find('.del').length) {
+              $(ui.draggable.get(0)).append('<div class="del">X</div>');
+              
+              const currDraggableElem = ui.draggable.get(0);
+              console.log('currDraggableElem', currDraggableElem)
+              const data = $('.del', ui.draggable.get(0)).parent().data();
+              const id = data.dragid;
+              $('.del', ui.draggable.get(0)).on('click', (e) => {
+  
+                $('.del', ui.draggable.get(0)).remove();
+                console.log('data.prevIdx', data)
+                // col2.splice(data.prevIdx, 0, {id, text: $(currDraggableElem).text()})
+                console.log('col2 after', col2)
+                $(ui.draggable).css({position: 'absolute'});
+                $('.col2').append(ui.draggable);
+                console.log('droppableId', droppableId)
+                $(`.col1 .dropbox[data-dropid=${droppableId}]`).droppable('enable')
+                col2 = col2.map(el => {
+                  if(el.id === data.dragid) {
+                    return {...el, hidden: false}
+                  } else {
+                    return el
+                  }
+                })
+                renderCol2();
+                $('.col2 div').draggable({
+                  appendTo: 'body',
+                  revert: "invalid",
+                  helper: "clone"
+                });
+                // $(this).droppable('enable')
+                // e.stopPropagation()
+                
+                
+                // if (id === 1) {
+                //   console.log('here')
+                //   // ui.helper.detach().appendTo($('.col2'));
+                //   $(ui.draggable).css({position: 'static'})
+                //   $('.col2').prepend(ui.draggable)
+                // } else if (id === 12) {
+                //   console.log('here')
+                //   // ui.helper.detach().appendTo($('.col2'));
+                //   $(ui.draggable).css({position: 'static'})
+                //   $('.col2').append(ui.draggable)
+                // } else {
+                //   debugger
+                //   const prevId = id - 1;
+                //   $(ui.draggable).css({position: 'static'})
+                  
+                //   $(`.col2 .dragbox[data-dragid=${prevId}]`).after(ui.draggable)
+                // }
+                
+              })
+            }
+          }
+        });
+        function renderCol1() {
+          col1ui = col1.map(el => {
+            return `
+              <div class="dropbox" data-dropid=${el.id}></div>
+            `
+          }).join(' ');
+          $('.col1').html('');
+          $('.col1').append(col1ui);
+        }
+
+        function renderCol2() {
+          col2ui = col2.map(el => {
+            if (!el.hidden) {
+              return `
+              <div class="dragbox ui-draggable ui-draggable-handle" data-dragid=${el.id}>${el.text}</div>
+            `
+            }
+            
+          }).join(' ');
+          $('.col2').html('');
+          $('.col2').append(col2ui);
+        }
+        
+      });
+      
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col1">
+      </div>
+      <div class="col2">
+      </div>
+      <div id="dragbox"></div>
+    </div>
+  </body>
+</html>   -->
+

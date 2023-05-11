@@ -1,0 +1,213 @@
+@import '../tools/variables';
+
+.pets-section {
+  padding: 1rem 3rem;
+  max-width: 105rem;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  .carousel {
+    height: 550px;
+    .carousel-item {
+      max-width: 300px;
+      width: 100%;
+      height: 450px;
+      cursor: pointer;
+      // opacity: 1 !important;
+      .card-image {
+        .profile-photo__pic {
+          background: #ffffff;
+          min-height: 16rem;
+          max-width: 22rem;
+          min-width: 15rem;
+          border-radius: 1.5rem;
+          padding-top: 1.3rem;
+          text-align: center;
+          .pic-edit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 13rem;
+            max-width: 19rem;
+            margin: 0 auto;
+            background: url(../img/icons/icon-circle.svg) no-repeat center /
+                12rem,
+              url(../img/icons/icon-palm.svg) no-repeat center;
+
+            img {
+              width: 100%;
+              max-width: 15rem;
+              margin-bottom: 1.5rem;
+              height: 15rem;
+              border-radius: 50%;
+            }
+            .edit-sign {
+              border-radius: 50%;
+              height: 2.5rem;
+              width: 2.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: $cian;
+              color: #ffffff;
+              font-size: 3rem;
+              font-weight: 500;
+              position: absolute;
+              bottom: 10%;
+              right: 18%;
+              transition: all 0.3s;
+              cursor: pointer;
+              input {
+                display: none;
+              }
+
+              &:hover {
+                -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.17);
+                background-color: $pink;
+              }
+            }
+          }
+        }
+        .card-badge {
+          position: absolute;
+          bottom: 0px;
+          width: 100%;
+          text-align: left;
+          text-transform: uppercase;
+          font-size: 0.9em;
+          padding: 0.2em 24px 0.8em 24px;
+          color: #fff;
+          z-index: 2;
+          .material-icons {
+            position: relative;
+            margin-right: 8px;
+            top: 7px;
+          }
+          + .card-title {
+            padding-bottom: 50px;
+          }
+        }
+      }
+      .card-content {
+        position: relative;
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        .edit-pet-info {
+          display: none;
+        }
+        ul {
+          [contenteditable] {
+            outline: 1px solid $cian;
+          }
+          margin: 0;
+          li {
+            width: calc(100% - 20px);
+            height: 19px;
+            z-index: 5;
+            margin-bottom: 5px;
+            .confirm-changes {
+              & + span {
+                &:not(:checked)::after {
+                  border: none;
+                  border: 1px solid #9e9e9e;
+                }
+              }
+              & + span:after {
+                top: -1px;
+                height: 21px;
+              }
+              &:checked + span::after {
+                background-color: $cian;
+              }
+            }
+          }
+          .title {
+            &:hover {
+              .edit-pet-info {
+                display: block;
+                position: absolute;
+                right: 24px;
+                top: 24px;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover {
+                  color: $cian;
+                }
+              }
+            }
+          }
+          .breed {
+            &:hover {
+              .edit-pet-info {
+                display: block;
+                position: absolute;
+                right: 24px;
+                top: 48px;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover {
+                  color: $cian;
+                }
+              }
+            }
+          }
+          .weight {
+            &:hover {
+              .edit-pet-info {
+                display: block;
+                position: absolute;
+                right: 24px;
+                top: 71px;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover {
+                  color: $cian;
+                }
+              }
+            }
+          }
+        }
+      }
+      .card-action {
+        a {
+          color: $cian !important;
+          &:hover {
+            color: $pink !important;
+          }
+        }
+      }
+      &:not(.active) {
+        opacity: 0.3333 !important;
+        .edit-pet-info {
+          display: none;
+        }
+      }
+    }
+    &__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      &.prev-btn {
+        background: none;
+        border: none;
+        left: 0;
+        cursor: pointer;
+        img {
+          width: 20px;
+          height: 20px;
+          transform: rotate(-180deg);
+        }
+      }
+      &.next-btn {
+        background: none;
+        border: none;
+        right: 0;
+        cursor: pointer;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

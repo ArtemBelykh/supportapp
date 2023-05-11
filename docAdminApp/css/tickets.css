@@ -1,0 +1,266 @@
+.tickets-section {
+  height: 100vh;
+  padding: 10px 15px;
+  /* max-width: 105rem; */
+  /* margin: 0 auto; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tickets-section .form-create-message {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  max-width: 600px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.tickets-section .form-create-message .container {
+  padding: 0 !important;
+  background-color: #fff;
+}
+
+.tickets-section .form-create-message__header {
+  padding: 0 10px;
+  height: 37px;
+  background-color: #202124;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tickets-section .form-create-message__info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.tickets-section .form-create-message__input {
+  border: none;
+  padding: 6.5px 5px;
+  border-bottom: 1px solid #eee;
+  flex-grow: 1;
+  outline: none;
+}
+
+.tickets-section #btnCreateMsg {
+  width: 110px;
+}
+
+.tickets-section .form-create-message__input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.tickets-section .recipient-item {
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.tickets-section .form-create-message__textarea {
+  resize: none;
+  border: none;
+  min-height: 200px;
+  padding: 5px;
+}
+
+.tickets-section .form-create-message__remove {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.tickets-section .form-create-message__footer {
+  padding: 0 10px 15px;
+}
+
+.tickets-section tr.highlight {
+  background-color: #cfecec !important;
+}
+
+.tickets-section .note-body {
+  display: flex;
+}
+
+.tickets-section .note-body__container {
+  flex-grow: 1;
+}
+
+.tickets-section .note-body__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.tickets-section .note-body__tags {
+  display: flex;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+
+.tickets-section .note-body__tag-item {
+  padding: 5px;
+  background-color: #39ac39;
+  margin-right: 10px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.tickets-section .note-body__bnt-back {
+  margin-right: 15px;
+}
+
+.tickets-section .note-body__bnt-back i {
+  cursor: pointer;
+}
+
+.tickets-section .panel-heading__bottom span {
+  font-weight: 600;
+}
+
+.tickets-section .panel-heading__top {
+  display: flex;
+  align-items: center;
+}
+
+.tickets-section .panel-heading__top span:nth-child(1) {
+  font-weight: 600;
+}
+
+.tickets-section .panel-heading__top span:nth-child(2) {
+  margin-left: auto;
+}
+
+.tickets-section .glyphicon-inverse {
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.tickets-section .modal-recipients-result {
+  font-size: 14px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 2px 6px 2px rgba(60, 64, 67, 0.149);
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 1.5%;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.tickets-section .form-create-message .container {
+  min-width: 600px;
+}
+
+.tickets-section
+  .form-create-message__input-wrapper
+  .modal-recipients-result__item {
+  padding: 0 5px;
+  display: flex;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+.tickets-section .modal-recipients-result__item {
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.tickets-section .modal-recipients-result__remove-item-block {
+  margin-left: 5px;
+}
+
+.tickets-section .modal-recipients-result__remove-item-span {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tickets-section .modal-recipients-result__item:hover {
+  background-color: #eee;
+}
+
+.tickets-section table.dataTable {
+  width: 100% !important;
+}
+
+.tickets-section .glyphicon-wrapper {
+  width: 16px;
+  display: inline-block;
+}
+
+.tickets-section .glyphicon-wrapper .glyphicon:nth-child(2) {
+  right: 21px;
+}
+
+.tickets-section .unread-messages-row {
+  font-weight: bold;
+}
+
+.tickets-section #tblMain-sent tbody .unread-messages-row {
+  font-weight: normal;
+}
+
+.tickets-section select[name^='tblMain'] {
+  height: auto;
+}
+
+.tickets-section .table-condensed {
+  width: 100% !important;
+}
+
+.tickets-section [id='^tblMain'] {
+  width: 100% !important;
+}
+
+.tickets-section .form-create-message__input-wrapper:nth-child(2) {
+  margin: 5px 0;
+  padding-top: 0;
+}
+
+.tickets-section
+  .form-create-message__input-wrapper:nth-child(2)
+  .form-control {
+  width: 18%;
+  padding: 0;
+  box-shadow: none;
+}
+
+.form-create-message__input[type='number'] {
+  max-width: 30%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  flex-grow: 1;
+  outline: none;
+}
+
+#statuses {
+  margin-left: auto;
+}
+
+p.form-create-message__default-subject {
+  font-size: 14px;
+  margin: 0;
+  padding: 0 5px;
+  color: rgba(51, 51, 51, 0.8);
+  font-weight: 400;
+}
+
+.select2-results__option--selected {
+  display: none;
+}
+
+.note-text {
+  display: inline-block;
+  width: 90%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.row td:nth-child(2) {
+  max-width: 400px;
+}

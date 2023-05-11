@@ -1,0 +1,514 @@
+/* 1 popup */
+pushboxcontainer {
+  position: fixed;
+  z-index: 1000201;
+  top: 15px;
+  left: 35%;
+  font-family: times;
+  display: block;
+  -webkit-animation: _aimtellShowPushBox 1s forwards;
+  animation: _aimtellShowPushBox 1s forwards;
+}
+
+pushbox {
+  position: relative;
+  background: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  width: 405px;
+  height: 168px;
+  padding: 28px;
+  display: block;
+  border: none;
+  box-shadow: 20px 20px 35px -5px rgba(39, 55, 74, 0.75),
+    0 15px 40px 10px rgba(39, 55, 74, 0.25);
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+pushbox noticon {
+  height: 60px;
+  width: 75px;
+  float: left;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+pushbox noticon img {
+  width: 75px;
+  height: 60px;
+  border: none;
+}
+
+pushbox notibody {
+  float: left;
+  text-align: left;
+  padding-left: 23.8298px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.32px;
+}
+
+pushbox noticlose {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #c9c9c9;
+  cursor: pointer;
+  z-index: 1000201;
+}
+
+pushbox pushbox-cta buttons {
+  position: relative;
+  display: inline-block;
+  clear: both;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  padding-top: 12px;
+  text-transform: uppercase;
+}
+
+pushbox pushbox-cta buttons button-approve,
+pushbox pushbox-cta buttons button-deny {
+  float: right;
+}
+
+pushbox teaser {
+  font-weight: 400;
+  color: #5a5b5c;
+  font-size: 16px;
+  padding: 0;
+}
+
+pushbox teaser,
+pushbox teaser-byline {
+  display: block;
+  position: relative;
+}
+
+pushbox teaser-byline {
+  color: #5a5b5c;
+}
+
+pushbox button-approve,
+pushbox button-deny {
+  cursor: pointer;
+  transition: all 60ms ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  border: 0 none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 14px;
+  width: 144px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+pushbox img._aimtellBell {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+pushbox powered {
+  font-size: 14px;
+  padding: 5px 0px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 8px;
+  opacity: 0.5;
+  display: none;
+}
+
+pushbox powered svg {
+  width: 14px;
+  fill: #000;
+  position: relative;
+  top: 3px;
+}
+
+pushbox powered a,
+pushbox powered a:hover {
+  color: #000;
+}
+
+pushbox ._aimtellPromptApprove {
+  background-color: #f58f8c;
+  color: #ffffff;
+}
+
+pushbox ._aimtellPromptApprove:hover {
+  background-color: #88cdc8;
+  color: #ffffff;
+}
+
+pushbox ._aimtellPromptDeny {
+  background-color: #ffffff;
+  color: #5a5b5c;
+  justify-content: flex-start;
+  width: auto;
+  padding: 0 26px 0 0;
+}
+
+pushbox ._aimtellPromptDeny:hover {
+  color: #88cdc8;
+  text-decoration: underline;
+}
+
+/* 2 popup */
+pushboxcontainer {
+  position: fixed;
+  z-index: 1000201;
+  top: 15px;
+  left: 40%;
+  font-family: times;
+  display: block;
+  -webkit-animation: _aimtellShowPushBox 1s forwards;
+  animation: _aimtellShowPushBox 1s forwards;
+}
+
+pushbox {
+  position: relative;
+  background: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  width: 360px;
+  height: 290px;
+  padding: 40px 30px 30px 30px;
+  display: block;
+  border: none;
+  box-shadow: 20px 20px 35px -5px rgba(39, 55, 74, 0.75),
+    0 15px 40px 10px rgba(39, 55, 74, 0.25);
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+pushbox noticon {
+  width: 65px;
+  height: 55px;
+  display: block;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+pushbox noticon img {
+  width: 65px;
+  height: 55px;
+  border: none;
+}
+
+pushbox notibody {
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 44.7px;
+  letter-spacing: 0.32px;
+}
+
+pushbox noticlose {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #c9c9c9;
+  cursor: pointer;
+  z-index: 1000201;
+}
+
+pushbox pushbox-cta buttons {
+  position: relative;
+  display: inline-block;
+  clear: both;
+  width: 100%;
+  font-size: 14px;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+pushbox pushbox-cta buttons button-approve,
+pushbox pushbox-cta buttons button-deny {
+  /* margin-top: 10px; */
+  float: right;
+  /* margin-right: 10px; */
+}
+
+pushbox teaser {
+  font-weight: 700;
+  color: #5a5b5c;
+  padding: 0;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+pushbox teaser,
+pushbox teaser-byline {
+  display: block;
+  position: relative;
+}
+
+pushbox teaser-byline {
+  letter-spacing: 0.8px;
+  font-size: 16px;
+  color: #5a5b5c;
+  line-height: 25px;
+}
+
+pushbox button-approve,
+pushbox button-deny {
+  cursor: pointer;
+  transition: all 60ms ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 14px;
+  width: 145px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+pushbox img._aimtellBell {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+pushbox powered {
+  font-size: 14px;
+  padding: 5px 0px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 8px;
+  opacity: 0.5;
+  display: none;
+}
+
+pushbox powered svg {
+  width: 14px;
+  fill: #000;
+  position: relative;
+  top: 3px;
+}
+
+pushbox powered a,
+pushbox powered a:hover {
+  color: #000;
+}
+
+pushbox ._aimtellPromptApprove {
+  background-color: #f58f8c;
+  color: #ffffff;
+}
+/*
+pushbox ._aimtellPromptApprove:active {
+  background-color: #88cdc8;
+  color: #ffffff;
+}
+*/
+
+pushbox ._aimtellPromptDeny {
+  background-color: #ffffff;
+  color: #a09f9f;
+  border: 1px solid #a09f9f;
+}
+
+/*
+pushbox ._aimtellPromptDeny:active {
+  color: #88cdc8;
+  text-decoration: underline;
+}
+*/
+
+/* 3 popup */
+pushboxcontainer {
+  position: fixed;
+  z-index: 1000201;
+  top: 15px;
+  left: 30%;
+  font-family: times;
+  display: block;
+  -webkit-animation: _aimtellShowPushBox 1s forwards;
+  animation: _aimtellShowPushBox 1s forwards;
+}
+
+pushbox {
+  position: relative;
+  background: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  width: 710.7979px;
+  height: 98.5426px;
+  padding: 18px;
+  display: block;
+  border: none;
+  box-shadow: 20px 20px 35px -5px rgba(39, 55, 74, 0.75),
+    0 15px 40px 10px rgba(39, 55, 74, 0.25);
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+pushbox noticon {
+  height: 63px;
+  width: 77px;
+  float: left;
+  display: block;
+  text-align: center;
+  margin: 0 25px 0 0;
+}
+
+pushbox noticon img {
+  width: 77px;
+  height: 63px;
+  border: none;
+}
+
+pushbox notibody {
+  font-family: 'Roboto', sans-serif;
+  float: left;
+  text-align: center;
+  margin: 0 25px 0 0;
+  padding: 7px 0;
+  letter-spacing: 0.32px;
+}
+
+pushbox noticlose {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #c9c9c9;
+  cursor: pointer;
+  z-index: 1000201;
+}
+
+pushbox pushbox-cta buttons {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  padding-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  display: flex;
+}
+
+pushbox pushbox-cta buttons button-approve,
+pushbox pushbox-cta buttons button-deny {
+  float: right;
+}
+
+pushbox teaser {
+  font-weight: 700;
+  color: #5a5b5c;
+  padding: 0;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+pushbox teaser,
+pushbox teaser-byline {
+  display: block;
+  position: relative;
+}
+
+pushbox teaser-byline {
+  letter-spacing: 0.32px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #5a5b5c;
+  text-align: left;
+}
+
+pushbox button-approve,
+pushbox button-deny {
+  cursor: pointer;
+  transition: all 60ms ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 14px;
+  width: 145px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+pushbox img._aimtellBell {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+pushbox powered {
+  font-size: 14px;
+  padding: 5px 0px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 8px;
+  opacity: 0.5;
+  display: none;
+}
+
+pushbox powered svg {
+  width: 14px;
+  fill: #000;
+  position: relative;
+  top: 3px;
+}
+
+pushbox powered a,
+pushbox powered a:hover {
+  color: #000;
+}
+
+pushbox ._aimtellPromptApprove {
+  background-color: #f58f8c;
+  color: #ffffff;
+}
+/*
+pushbox ._aimtellPromptApprove:active {
+  background-color: #88cdc8;
+  color: #ffffff;
+}
+*/
+
+pushbox pushbox-cta buttons button-approve,
+pushbox pushbox-cta buttons button-deny {
+  float: right;
+}
+
+pushbox ._aimtellPromptDeny {
+  margin-left: 10px;
+  background-color: #ffffff;
+  color: #a09f9f;
+  border: 1px solid #a09f9f;
+}
+
+/*
+pushbox ._aimtellPromptDeny:active {
+  color: #88cdc8;
+  text-decoration: underline;
+}
+*/

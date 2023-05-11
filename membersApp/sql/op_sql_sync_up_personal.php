@@ -1,0 +1,306 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+  //header("location: /../login.php");
+  die('{"message":"error0"}');  
+}
+
+// get contact_id
+if( isset($_SESSION["selectedId"]) ){
+   $contact_id = $_SESSION["selectedId"];
+} else {
+  // $contact_id = 2240; 
+  die('{"message":"error"}');
+} 
+
+if ( $contact_id == 0 ) { 
+  // $contact_id = 2240; 
+  die('{"message":"error"}');
+}
+
+// *** ***
+require(dirname(__FILE__).'/../../config/config_op.php');
+require(dirname(__FILE__).'/../../config/config.php');
+// *** ***
+
+// set up vars
+// $domain = $_SERVER['HTTP_HOST'];
+// $prefix = $_SERVER['HTTPS'] ? 'https://' : 'http://';
+// $urlPath = $prefix.$domain.'/supportApp/sql/';
+
+$myObj = new stdClass();
+$myObj->result = 1;
+$succeeded = json_encode($myObj);
+// *** ***
+
+// *** ***
+function prepareMySQL( $string, $slice = 100 ){  
+  if ( $string === "" || $string === null ) { return null; }    
+  preg_replace('/(<([^>]+)>)/', '', $string);      // remove html tags            
+  preg_replace('/[\u0800-\uFFFF]/', '', $string);  // remove weird chars
+  $string = substr( $string, 0, $slice );
+  return $string; 
+};
+// *** ***
+
+// *** ***
+function sqlRunProc( $nameProc, $arrVar ){
+
+  global $link;
+
+  $res = 1;
+  $sql = "CALL ".$nameProc."(";
+  // $sql.= implode("','", $arrVar);
+  foreach( $arrVar as $var ){
+    if( $var == null ){
+      $sql.= " null,";
+    } else {
+      $sql.= " '$var',";
+    }
+  }
+  $sql = substr( $sql, 0, -1 ); // trim last comma
+  $sql.= ");";
+
+  // echo "<pre>"; echo $sql; echo "</pre>"; return; // exit;
+
+  mysqli_query( $link, $sql ) or die("<b>Error:</b><br/>" . mysqli_error($link));// die('{"message":"errorSQL0"}');// die("<b>Error:</b><br/>" . mysqli_error($link));// 
+  if (mysqli_affected_rows($link) <  0 ) {  
+    $res = -1;
+  }
+  return $res;  
+}
+// *** ***
+
+// *** ***
+function sqlRunProcRes( $nameProc, $arrVar ){
+
+  global $link;
+
+  $res = 1;
+  $sql = "CALL ".$nameProc."(";
+  // $sql.= implode("','", $arrVar);
+  foreach( $arrVar as $var ){
+    if( $var == null ){
+      $sql.= " null,";
+    } else {
+      $sql.= " '$var',";
+    }
+  }
+  $sql = substr( $sql, 0, -1 ); // trim last comma
+  $sql.= ", @res);";
+
+  // echo "<pre>"; echo $sql; echo "</pre>"; return; // exit;
+
+  mysqli_query( $link, $sql ) or die("<b>Error:</b><br/>" . mysqli_error($link));// die('{"message":"errorSQL0"}');// die("<b>Error:</b><br/>" . mysqli_error($link));// 
+  if (mysqli_affected_rows($link) <  0 ) {  
+    $res = -1;
+  }
+  return $res;  
+}
+// *** ***
+
+// *** ***
+function sqlRunProcPets( $nameProc, $arrVar ){
+
+  global $link;
+
+  $res = -1;
+  $sql = "CALL ".$nameProc."(";  // sp_insert_pet_op
+  // $sql.= implode("','", $arrVar);
+  foreach( $arrVar as $var ){
+    if( $var == null ){
+      $sql.= " null,";
+    } else {
+      $sql.= " '$var',";
+    }
+  }
+  $sql = substr( $sql, 0, -1 ); // trim last comma
+  $sql.= ", @res);";
+
+  //echo "<pre>"; echo $sql; echo "</pre>"; return;//exit;
+
+  $result = mysqli_query($link, $sql) or die("<b>Error:</b><br/>" . mysqli_error($link));// die( '{"message":"errorSQL1"}' );
+  // step to next result set - to MySQL stored procedure OUT results
+  $link->next_result();
+  // Fetch OUT parameters 
+  if ( !($result = $link->query( "SELECT @res;")) ) { die( '{"message":"errorSQL1"}' ); };
+  $row = mysqli_fetch_assoc($result);
+  // get sql data
+
+  $res = ( $row['@res'] > 0 ) ? 1 : $row['@res'] ; 
+
+  return $res;  
+}
+// *** ***
+
+// Retrieve Contact ID by ID
+$requestParams = array(
+  "objectID" => 0, // Object type ID: 0
+  "id"       => $contact_id  
+);
+
+$response = $clientOP->object()->retrieveSingle( $requestParams );
+$arrRes = json_decode( $response, true );
+
+// echo "<pre>";
+// echo print_r ($pre_response);
+// echo "</pre>";
+// exit;
+
+//echo "<pre>"; echo $arrRes["data"]["firstname"]; echo "</pre>";
+
+// *******
+// Update Contact
+// *******
+
+// prepare params
+$firstname  = prepareMySQL( $arrRes["data"]["firstname"], 100) ;
+$lastname   = prepareMySQL( $arrRes["data"]["lastname"], 100 );
+$birthday   = ( is_nan( intVal( $arrRes["data"]["birthday"] ))) ? null: $arrRes["data"]["birthday"];//prepareMySQL( objContact.birthday, 45 );
+$email      = prepareMySQL( $arrRes["data"]["email"], 128 );
+$parent_id  = ( is_nan( intVal( $arrRes["data"]["f2438"] ))) ? null: $arrRes["data"]["f2438"];
+$gender     = ( $arrRes["data"]["f1505"] == '21' )? 1: 0; // f1505 - 21 M, 22 F;
+$is_over_18 = ( $arrRes["data"]["f1547"] == '164' )? 1: 0; // f1547 - 164 Y, 165 N;
+$phone      = prepareMySQL( $arrRes["data"]["sms_number"], 16 );    
+
+// check if somehting is there
+// if ( $firstname === null && $lastname === null && $email === null ){
+//   die( $succeeded );
+// }
+
+// assemble the query array
+$arrVar0 = array( 
+  "id"        => $arrRes["data"]["id"],  // 0 - id
+  "firstname" => $firstname,             // 1 - firstname
+  "lastname"  => $lastname,              // 2 - lastname
+  "birthday"  => $birthday,              // 3 - birthday
+  "email"     => $email,                 // 4 - email
+  "parent_id" => $parent_id,             // 5 - parent id
+  "gender"    => $gender,                // 6 - gender
+  "is_over_18"=> $is_over_18,            // 7 - is_over_id
+  "phone"     => $phone,                 // 8 - phone
+  "unixdate"  => $arrRes["data"]["date"] // 9 - unixdate
+);
+
+$res0 = sqlRunProc( 'sp_insert_ontraport_contact_01', $arrVar0 );
+if( $res0 !== 1) { die('{"message":"error0"}'); }
+
+// *******
+// Update Contact Address
+// *******
+// check if somehting is there
+
+// prepare params
+$address1 = prepareMySQL( $arrRes["data"]["address"], 85 );
+$address2 = prepareMySQL( $arrRes["data"]["address2"], 85 );
+$city     = prepareMySQL( $arrRes["data"]["city"], 85 );
+
+$zip_str  = substr( $arrRes["data"]["zip"], 0, 5 );
+$zip      = ( is_nan( intVal( $zip_str )) )? null: intVal( $zip_str ) ;  
+
+$state    = prepareMySQL( $arrRes["data"]["state"], 2 );
+
+// assemble the query array
+$arrVar1 = array( 
+  "id"          => $arrRes["data"]["id"], // 0 - id
+  "address1"    => $address1,             // 1 - address1
+  "address2"    => $address2,             // 2 - address2
+  "city"        => $city,                 // 3 - city
+  "zip"         => $zip,                  // 4 - zip
+  "state_code"  => $state                 // 5 - state  
+);
+
+$res1 = sqlRunProcRes( 'sp_insert_address_01', $arrVar1 );
+if( $res1 !== 1) { die('{"message":"error1"}'); }
+
+
+// *******
+// Update Contact Pets
+// ******* 
+
+// *****
+// Pet #0 (1st)
+// *****
+
+//'f1515, f1516, f1517, f1518, ';  // Pet #0 type, Name , Breed, Weight      
+if ( $arrRes["data"]["f1516"] == '' || $arrRes["data"]["f1517"] == '' ){     
+
+  // assemble the query array
+  $arrVar20 = array( 
+    "contact_id" => $arrRes["data"]["id"],
+    "op_order"   => '0'   
+  );
+
+  $res20 = sqlRunProc( 'sp_disable_op_pet', $arrVar20 );
+  if( $res20 !== 1) { die('{"message":"error20"}'); }
+
+} else {
+
+  // Pet #0
+  $type  = ( $arrRes["data"]["f1515"] == '31' )? 1: 2; // f1547 - 30 Cat, 31 Dog; // fixed since conId>720000
+  $title = prepareMySQL( $arrRes["data"]["f1516"], 45 );
+  $breed = prepareMySQL( $arrRes["data"]["f1517"], 45 );
+  $weight = ( is_nan( $arrRes["data"]["f1518"] ))? 0 : round( substr( $arrRes["data"]["f1518"], 0, 4 ), 2 );            
+
+  // assemble the query array  
+  $arrVar21 = array( 
+    "contact_id" => $arrRes["data"]["id"],
+    "type"       => $type,
+    "title"      => $title,
+    "breed"      => $breed,
+    "weight"     => $weight,
+    "op_order"   => '0'
+  );
+
+  $res21 = sqlRunProcPets( 'sp_insert_pet_op', $arrVar21 );
+  if( $res21 !== 1) { die('{"message":"error21"}'); }
+}
+
+// *****
+// Pet #1 (2nd)
+// *****
+
+//'f1540, f1541, f1542, f1665';  // Pet #1 type, Name , Breed, Weight
+if ( $arrRes["data"]["f1541"] == '' || $arrRes["data"]["f1542"] == '' ){     
+
+  // assemble the query array
+  $arrVar30 = array( 
+    "contact_id" => $arrRes["data"]["id"],
+    "op_order"   => '1'
+  );
+
+  $res30 = sqlRunProc( 'sp_disable_op_pet', $arrVar30 );
+  if( $res30 !== 1) { die('{"message":"error20"}'); }
+
+} else {
+
+  // Pet #1
+  $type  = ( $arrRes["data"]["f1540"] == '154' )? 1: 2; // f1540 - 153 Cat, 154 Dog;
+  $title = prepareMySQL( $arrRes["data"]["f1541"], 45 );
+  $breed = prepareMySQL( $arrRes["data"]["f1542"], 45 );
+  $weight = ( is_nan( $arrRes["data"]["f1665"] ))? 0 : round( substr( $arrRes["data"]["f1665"], 0, 4 ), 2 );       
+  
+  // assemble the query array
+  $arrVar31 = array( 
+    "contact_id" => $arrRes["data"]["id"],
+    "type"       => $type,
+    "title"      => $title,
+    "breed"      => $breed,
+    "weight"     => $weight,
+    "op_order"   => '1'
+  );
+
+  $res31 = sqlRunProcPets( 'sp_insert_pet_op', $arrVar31 );
+  if( $res31 !== 1) { die('{"message":"error31"}'); }
+
+}
+
+echo $succeeded;
+
+//free resources
+mysqli_free_result($result);
+mysqli_close($link);
+?>

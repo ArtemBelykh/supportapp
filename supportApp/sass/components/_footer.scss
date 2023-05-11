@@ -1,0 +1,44 @@
+.footer {
+  background-color: $darker-pink;
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  padding: 1.3rem 0;
+  color: #ffffff;
+  .row {
+    margin-bottom: 0;
+  }
+
+  &__links {
+    .link {
+      color: #ffffff;
+      transition: all 0.4s;
+    }
+    .link:hover {
+      color: $dark-grey;
+    }
+    .link:not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  .footer {
+    &__links {
+      margin-bottom: 1.5rem;
+    }
+
+    &__links {
+      .link:not(:first-child) {
+        margin-left: 1rem;
+      }
+    }
+
+    .row-revert {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}

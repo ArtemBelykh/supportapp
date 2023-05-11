@@ -1,0 +1,12 @@
+.reports-section {
+  height: 100vh;
+  padding: 10px 15px;
+  /* max-width: 105rem; */
+  /* margin: 0 auto; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.reports-section table td {
+  white-space: nowrap;
+  padding: 8px;
+}

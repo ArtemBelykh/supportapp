@@ -1,0 +1,15 @@
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}

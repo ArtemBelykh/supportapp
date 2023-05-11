@@ -1,0 +1,124 @@
+.form-create-message {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  max-width: 600px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+.form-create-message .container {
+  padding: 0 !important;
+  background-color: #fff;
+}
+
+.form-create-message__header {
+  padding: 0 10px;
+  height: 37px;
+  background-color: #202124;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-create-message__info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.form-create-message__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.form-create-message__input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.recipient-item {
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.form-create-message__textarea {
+  resize: none;
+  border: none;
+  min-height: 200px;
+}
+
+.form-create-message__remove {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form-create-message__footer {
+  padding: 0 10px 15px;
+}
+
+tr.highlight {
+  background-color: #CFECEC !important;
+}
+
+.note-body {
+  display: flex;
+}
+
+.note-body__container {
+  flex-grow: 1;
+}
+
+.note-body__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.note-body__bnt-back {
+  margin-right: 15px;
+}
+
+.note-body__bnt-back i {
+  cursor: pointer;
+}
+
+.panel-heading__bottom span {
+  font-weight: 600;
+}
+
+.panel-heading__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glyphicon-inverse {
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.modal-recipients-result {
+  font-size: 14px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 1.5%;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.modal-recipients-result__item {
+  padding: 5px;
+}
+
+.modal-recipients-result__item:hover {
+  background-color: #eee;
+}
+
+
+
+    

@@ -1,0 +1,78 @@
+// icons
+.link-icon {
+  display: inline-block;
+  font-family: Roboto;
+  width: 2rem;
+  height: 2.2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 1rem;
+
+  // &--activeTab {
+  //   filter: sepia(412%) saturate(673%) hue-rotate(131deg) brightness(101%)
+  //     contrast(76%);
+  // }
+}
+
+.head-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.icon-checklist {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-checklist.png);
+}
+
+.icon-profile {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-profile.svg);
+  // &--filtered {
+  //   filter: invert(50%);
+  // }
+}
+
+.icon-money {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-money.svg);
+}
+
+.icon-box {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-box.svg);
+}
+
+.icon-cart {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-cart.svg);
+}
+
+.icon-file {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-list.svg);
+}
+
+.icon-edit {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-write.svg);
+}
+
+.icon-msg {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-msg.svg);
+}
+
+.icon-palm {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-dog.svg);
+}
+
+.icon-signout {
+  @extend .link-icon;
+  background-image: url(../img/icons/icon-out.svg);
+}

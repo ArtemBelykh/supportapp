@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box; }
+
+.main-wrapper,
+.main {
+  min-height: 100vh;
+  position: relative;
+  padding: 20px; }
+
+body::-webkit-scrollbar {
+  width: 0.4rem; }
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4); }
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(125, 128, 123, 0.2);
+  outline: 1px solid slategrey; }
+
+.main-wrapper .row.center {
+  height: 100vh;
+  margin-bottom: 0; }
+
+.main-wrapper .center {
+  height: 100%;
+  float: none;
+  margin: 0 auto; }
+
+.main-wrapper .left {
+  display: flex;
+  justify-content: space-between;
+  width: calc(66.6666666667% - 10px) !important;
+  margin-right: 10px;
+  height: 400px;
+  padding: 10px 20px;
+  background-color: #eee; }
+  .main-wrapper .left .jotform-fields, .main-wrapper .left .matched-fields {
+    width: calc(50% - 10px); }
+    .main-wrapper .left .jotform-fields__title, .main-wrapper .left .matched-fields__title {
+      text-align: start;
+      color: #4d4dfc;
+      font-weight: bold; }
+    .main-wrapper .left .jotform-fields__list, .main-wrapper .left .matched-fields__list, .main-wrapper .left .right .ontraport-fields__list, .main-wrapper .right .left .ontraport-fields__list {
+      margin-bottom: 0;
+      list-style-type: none; }
+    .main-wrapper .left .jotform-fields__item, .main-wrapper .left .matched-fields__item {
+      padding: 2px 0 2px 5px;
+      border: 1px solid #ddd;
+      text-align: start;
+      background-color: #e5e568; }
+      .main-wrapper .left .jotform-fields__item:not(:last-child), .main-wrapper .left .matched-fields__item:not(:last-child) {
+        margin-bottom: 5px; }
+  .main-wrapper .left .matched-fields__item {
+    display: flex;
+    height: 27px;
+    justify-content: space-between;
+    background-color: #fff; }
+    .main-wrapper .left .matched-fields__item .item-del {
+      width: 30px;
+      text-align: center;
+      color: #6161e0; }
+  .main-wrapper .left .matched-fields .dragbox.ui-draggable-dragging .dragbox__text {
+    background: rgba(228, 228, 141, 0.9);
+    border-right: 1px solid #ddd; }
+  .main-wrapper .left .matched-fields .dragbox.ui-draggable-dragging .del-btn {
+    color: #ddd;
+    height: 27px; }
+  .main-wrapper .left .matched-fields .dragbox.collapsible-body {
+    padding: 0;
+    height: 27px; }
+  .main-wrapper .left .matched-fields .dragbox__text {
+    width: calc(100% - 30px);
+    text-align: start;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    padding: 0 0 0 7px;
+    line-height: 27px;
+    border-right: 1px solid lightblue;
+    background: lightblue;
+    cursor: default; }
+  .main-wrapper .left .matched-fields .dragbox .del-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightblue;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 27px;
+    cursor: pointer; }
+
+.main-wrapper .right {
+  height: 400px;
+  background-color: #eee;
+  padding: 10px 20px; }
+  .main-wrapper .right .ontraport-fields__title {
+    text-align: start;
+    color: #4d4dfc;
+    font-weight: bold; }
+  .main-wrapper .right .ontraport-fields__item {
+    border: 1px solid #ddd;
+    text-align: start;
+    background-color: #fff; }
+    .main-wrapper .right .ontraport-fields__item.active {
+      border: 1px solid #4ac0e6; }
+    .main-wrapper .right .ontraport-fields__item .item-del {
+      width: 30px;
+      text-align: center;
+      color: #6161e0; }
+    .main-wrapper .right .ontraport-fields__item .dragbox__text {
+      cursor: default; }
+    .main-wrapper .right .ontraport-fields__item .material-icons {
+      transform: rotate(-90deg); }
+      .main-wrapper .right .ontraport-fields__item .material-icons.--rotated {
+        transform: rotate(0deg); }
+  .main-wrapper .right .ontraport-fields .collapsible {
+    margin: 0;
+    box-shadow: none;
+    border: none; }
+    .main-wrapper .right .ontraport-fields .collapsible .collapsible-header {
+      color: orange;
+      padding: 0;
+      background: none; }
+    .main-wrapper .right .ontraport-fields .collapsible .collapsible-body {
+      padding: 2px 0 2px 5px; }
+
+.ui-draggable-dragging {
+  display: flex !important;
+  justify-content: space-between;
+  height: 27px;
+  padding: 0;
+  background: rgba(228, 228, 141, 0.9);
+  font-size: 1rem; }
